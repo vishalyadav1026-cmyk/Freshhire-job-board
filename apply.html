@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply Now - FreshHire</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+  <div class="logo">Fresh<span>Hire</span></div>
+  <a href="index.html" style="font-weight:700">← Back to Jobs</a>
+</nav>
+
+<div class="form-box">
+  <h2 id="jobTitle">Apply Now</h2>
+  <p style="color:#64748B;margin:8px 0 15px">Fill this form to apply. Your application will be saved.</p>
+  <form onsubmit="document.getElementById('msg').style.display='block'; return false;">
+    <label>Full Name</label>
+    <input placeholder="Enter your full name" required>
+    <label>Email</label>
+    <input type="email" placeholder="Enter your email" required>
+    <label>Phone</label>
+    <input placeholder="+91 98765 43210" required>
+    <label>College</label>
+    <input placeholder="Enter your college name" required>
+    <label>Passing Year</label>
+    <select><option>2024</option><option>2025</option><option>2026</option></select>
+    <label>Resume</label>
+    <input type="file">
+    <label>Why should we hire you?</label>
+    <textarea placeholder="Tell us why you are a great fit..." rows="4"></textarea>
+    <button type="submit">Submit Application</button>
+  </form>
+  <div id="msg" class="success">✅ Application Submitted Successfully!</div>
+  <p style="text-align:center;margin-top:12px"><a href="index.html" style="color:#4F46E5;font-weight:700">Browse More Jobs</a></p>
+</div>
+
+<script>
+// Job ka naam URL se uthake dikhana
+let job = new URLSearchParams(location.search).get('job');
+if(job){ document.getElementById('jobTitle').innerText = 'Apply Now - ' + job; }
+</script>
+</body>
+</html>

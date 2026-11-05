@@ -1,0 +1,101 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Plus Jakarta Sans',sans-serif;
+}
+body{background:#F8FAFC;color:#0F172A}
+a{text-decoration:none;color:inherit}
+
+/* NAVBAR */
+nav{
+  background:#fff;
+  padding:16px 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  box-shadow:0 1px 10px rgba(0,0,0,.06);
+  z-index:10;
+}
+.logo{font-size:24px;font-weight:800}
+.logo span{color:#4F46E5}
+.nav-links{display:flex;gap:25px;font-weight:600;font-size:14px}
+.btn{background:#4F46E5;color:#fff;padding:10px 18px;border-radius:10px;font-weight:700;font-size:14px;border:none;cursor:pointer}
+
+/* HERO */
+.hero{text-align:center;padding:50px 5% 20px}
+.hero h1{font-size:42px;line-height:1.1}
+.hero h1 span{color:#4F46E5}
+.hero p{color:#64748B;margin:14px 0 22px}
+.search{
+  max-width:650px;margin:auto;background:#fff;
+  display:flex;padding:8px;border-radius:14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);gap:8px;
+}
+.search input{flex:1;border:none;outline:none;padding:12px;font-size:15px}
+.search button{background:#0F172A;color:#fff;border:none;padding:12px 22px;border-radius:10px;font-weight:700;cursor:pointer}
+
+/* FILTER */
+.filters{
+  max-width:1100px;margin:30px auto 10px;padding:0 5%;
+  display:flex;gap:10px;flex-wrap:wrap;justify-content:center;
+}
+.filters input{display:none}
+.filters label{
+  background:#fff;border:1px solid #E2E8F0;
+  padding:9px 18px;border-radius:100px;
+  font-size:14px;font-weight:600;cursor:pointer;
+}
+#all:checked ~ .wrap .filters label[for="all"],
+#dev:checked ~ .wrap .filters label[for="dev"],
+#design:checked ~ .wrap .filters label[for="design"],
+#data:checked ~ .wrap .filters label[for="data"],
+#marketing:checked ~ .wrap .filters label[for="marketing"]{
+  background:#4F46E5;color:#fff;border-color:#4F46E5;
+}
+
+/* JOBS GRID */
+.jobs{
+  max-width:1100px;margin:20px auto;padding:0 5% 60px;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+}
+.card{background:#fff;border:1px solid #E2E8F0;border-radius:16px;padding:20px;transition:.2s}
+.card:hover{transform:translateY(-4px);box-shadow:0 15px 30px rgba(0,0,0,.08)}
+.top{display:flex;gap:12px;align-items:center}
+.logo-box{
+  width:48px;height:48px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;color:#fff;font-size:20px;
+}
+.c1{background:#4F46E5}.c2{background:#F97316}.c3{background:#16A34A}
+.c4{background:#DB2777}.c5{background:#0891B2}.c6{background:#7C3AED}
+.card h3{font-size:17px;margin:14px 0 4px}
+.card p{font-size:13px;color:#64748B}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0}
+.tags span{background:#F1F5F9;padding:5px 9px;border-radius:20px;font-size:12px;font-weight:600}
+.badge{display:inline-block;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:700;margin-top:2px}
+.remote{background:#DCFCE7;color:#166534}
+.intern{background:#FFEDD5;color:#9A3412}
+.apply{display:flex;gap:8px;margin-top:16px}
+.apply a{flex:1;text-align:center;padding:11px;border-radius:10px;font-weight:700;font-size:14px}
+.apply .view{border:1px solid #E2E8F0}
+.apply .now{background:#4F46E5;color:#fff}
+
+/* FILTER LOGIC - Bina JS ke */
+#dev:checked ~ .wrap .jobs .card:not(.developer){display:none}
+#design:checked ~ .wrap .jobs .card:not(.design){display:none}
+#data:checked ~ .wrap .jobs .card:not(.data){display:none}
+#marketing:checked ~ .wrap .jobs .card:not(.marketing){display:none}
+
+footer{text-align:center;padding:25px;color:#94A3B8;font-size:13px}
+
+@media(max-width:800px){
+  .jobs{grid-template-columns:1fr 1fr}
+  .hero h1{font-size:32px}
+  .nav-links{display:none}
+}
+@media(max-width:500px){
+  .jobs{grid-template-columns:1fr}
+}
